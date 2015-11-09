@@ -24,6 +24,7 @@ const config = {
     appJs: getAssetHash('build/app.js')
   },
   isProduction: isProduction,
+  googleAnalyticsId: 'UA-XXXXXXX-X',
   port: process.env.PORT || 8000,
   webpackStylesExtensions: ['css', 'less', 'sass', 'scss', 'styl']
 };

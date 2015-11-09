@@ -5,7 +5,7 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import config from '../config';
 import configureStore from '../../common/configureStore';
-import createRoutes from '../../client/createRoutes';
+import createRoutes from '../../browser/createRoutes';
 import serialize from 'serialize-javascript';
 import useragent from 'useragent';
 import {HOT_RELOAD_PORT} from '../../../webpack/constants';
@@ -40,6 +40,12 @@ export default function render(req, res, next) {
       return;
     }
 
+    // // Not possible with * route.
+    // if (renderProps == null) {
+    //   res.send(404, 'Not found');
+    //   return;
+    // }
+
     fetchComponentData(store.dispatch, req, renderProps)
       .then(() => renderPage(store, renderProps, req))
       .then(html => res.send(html))
@@ -49,7 +55,7 @@ export default function render(req, res, next) {
 
 function fetchComponentData(dispatch, req, {components, location, params}) {
   const fetchActions = components.reduce((actions, component) => {
-    return actions.concat(component.fetchAction || []);
+    return actions.concat(component.fetchActions || []);
   }, []);
   const promises = fetchActions.map(action => dispatch(action(
     {location, params}
