@@ -95,5 +95,8 @@ export default {
   },
   settings: {
     title: 'Settings'
+  },
+  monster: {
+    title: 'Monster'
   }
 };

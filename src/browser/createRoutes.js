@@ -1,6 +1,7 @@
 import App from './app/App.react';
 import Auth from './auth/Page.react';
 import Home from './home/Page.react';
+import Monster from './monster/Page.react';
 import Me from './me/Page.react';
 import NotFound from './notfound/Page.react';
 import Profile from './me/Profile.react';
@@ -27,6 +28,7 @@ export default function createRoutes(getState) {
         <Route component={Settings} path="settings" />
       </Route>
       <Route component={Todos} path="todos" />
+      <Route component={Monster} path="dex/:dexId" />
       <Route component={NotFound} path="*" />
     </Route>
   );
