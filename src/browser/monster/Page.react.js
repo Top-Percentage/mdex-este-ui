@@ -17,8 +17,7 @@ export default class Page extends Component {
 
   render() {
     const {actions, msg: {monster: msg}, monsters: {monster}} = this.props;
-
-    console.log(monster);
+    console.log("My Props", this.props.monsters);
 
     return (
       <DocumentTitle title={msg.title}>

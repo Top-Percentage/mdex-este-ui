@@ -4,6 +4,7 @@ export const FETCH_MONSTER_SUCCESS = 'FETCH_MONSTER_SUCCESS';
 
 export function fetchMonster({location, params}) {
   const dexId = params.dexId;
+  console.log("GONNA FETCH SOMETHING: " + dexId);
   return ({fetch}) => ({
     type: 'FETCH_MONSTER',
     payload: {

@@ -24,6 +24,9 @@ export default class Header extends Component {
           {!viewer &&
             <li><Link activeClassName="active" to="/login">{msg.login}</Link></li>
           }
+          <li><Link activeClassName="active" to="/dex/1">Bulbasaur</Link></li>
+          <li><Link activeClassName="active" to="/dex/2">Ivysaur</Link></li>
+          <li><Link activeClassName="active" to="/dex/3">Venasaur</Link></li>
         </ul>
       </header>
     );

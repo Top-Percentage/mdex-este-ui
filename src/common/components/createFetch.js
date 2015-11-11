@@ -19,15 +19,17 @@ export default function createFetch(React, Component) {
         // Dispatch is injected by react-redux.
         // React router injects location and params for every routed component.
         const {dispatch, location, params} = this.props;
-
         actions.forEach(action =>
           dispatch(action({location, params}))
         );
       }
 
-      // // TODO: Fetch if last location pathname has changed.
-      // componentWillReceiveProps(nextProps) {
-      // }
+      componentWillReceiveProps(nextProps) {
+        const {dispatch, location, params} = nextProps;
+        if(nextProps.location.pathname != this.props.location.pathname) {
+          actions.forEach(action => dispatch(action({location, params})));
+        }
+      }
 
       render() {
         return <Wrapped {...this.props} />;
